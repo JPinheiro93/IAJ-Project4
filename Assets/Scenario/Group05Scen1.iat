@@ -1,0 +1,14 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"ScenarioName": "Urban Beach Bouncer",
+			"Description": "You, our player, are the most ",
+			"CharacterSources": ["RPC\\Player.rpc"]
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "IntegratedAuthoringTool.IntegratedAuthoringToolAsset, IntegratedAuthoringTool, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}
