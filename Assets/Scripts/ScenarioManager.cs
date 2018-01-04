@@ -71,12 +71,12 @@ public class ScenarioManager : MonoBehaviour
         var characterSources = iat.GetAllCharacterSources().ToList();
 
         //AGENT
-        agentRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[0].Source);
+        agentRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[1].Source);
         agentRPC.LoadAssociatedAssets();
         iat.BindToRegistry(agentRPC.DynamicPropertiesRegistry);
     
         //PLAYER
-        playerRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[1].Source);
+        playerRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[0].Source);
         playerRPC.LoadAssociatedAssets();
         iat.BindToRegistry(playerRPC.DynamicPropertiesRegistry);
 
@@ -106,11 +106,11 @@ public class ScenarioManager : MonoBehaviour
         {
             if (action.Key.ToString().Equals(IATConsts.DIALOG_ACTION_KEY))
             {
-                Name cs = action.Parameters[0];
-                Name ns = action.Parameters[1];
-                Name m = action.Parameters[2];
-                Name s = action.Parameters[3];
-                var dialogs = iat.GetDialogueActions(cs, ns, m, s);
+                Name currentState = action.Parameters[0];
+                Name nextState = action.Parameters[1];
+                Name meaning = action.Parameters[2];
+                Name style = action.Parameters[3];
+                var dialogs = iat.GetDialogueActions(currentState, nextState, meaning, style);
                 dOpt.AddRange(dialogs);
             }
         }

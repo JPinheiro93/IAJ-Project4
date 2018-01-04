@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc1b668fc9aa024ba5583d145ff47c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IATScenario: HelloWorld.iat
+  IATScenario: Group05Scen1.iat
   SaveLog: 0
   ResetEmotions: 0
   AgentUtterance: {fileID: 1809334509}
