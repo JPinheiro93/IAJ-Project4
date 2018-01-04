@@ -8,21 +8,21 @@
 					"AppraisalWeight": 1,
 					"Rules": [
 						{
-							"EventName": "Event(Action-End, Player, Speak(*, *, *, Polite), SELF)",
+							"EventName": "Event(Action-End, *, Speak(*, *, *, Polite([x])), *)",
 							"Conditions":
 								{
-									"Set": []
+									"Set": ["[x] > 0"]
 								},
-							"Desirability": 3,
-							"Praiseworthiness": 3
+							"Desirability": 2
 						}, 
 						{
-							"EventName": "Event(Action-End, SELF, Speak(*, *, GetIn, *), *)",
+							"EventName": "Event(Action-End, *, Speak(*, *, *, Polite([x])), *)",
 							"Conditions":
 								{
-									"Set": []
+									"Set": ["[x] < 0"]
 								},
-							"Desirability": 10
+							"Desirability": -2,
+							"Praiseworthiness": -5
 						}]
 				},
 			"EmotionDispositions": [
@@ -30,6 +30,46 @@
 					"Emotion": "*",
 					"Decay": 1,
 					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Admiration",
+					"Decay": 10,
+					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Gratitude",
+					"Decay": 10,
+					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Joy",
+					"Decay": 10,
+					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Gratification",
+					"Decay": 10,
+					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Pride",
+					"Decay": 10,
+					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Anger",
+					"Decay": 1,
+					"Threshold": 10
+				}, 
+				{
+					"Emotion": "Reproach",
+					"Decay": 1,
+					"Threshold": 10
+				}, 
+				{
+					"Emotion": "Distress",
+					"Decay": 1,
+					"Threshold": 6
 				}]
 		},
 	"types": [

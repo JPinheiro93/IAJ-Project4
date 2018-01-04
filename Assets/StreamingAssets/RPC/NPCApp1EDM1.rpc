@@ -16,8 +16,8 @@
 				},
 			"BodyName": "Male",
 			"VoiceName": null,
-			"EmotionalAppraisalAssetSource": "",
-			"EmotionalDecisionMakingSource": "..\\SimpleSpeak.edm",
+			"EmotionalAppraisalAssetSource": "App1.ea",
+			"EmotionalDecisionMakingSource": "edm1.edm",
 			"SocialImportanceAssetSource": null,
 			"CommeillFautAssetSource": null,
 			"EmotionalState":

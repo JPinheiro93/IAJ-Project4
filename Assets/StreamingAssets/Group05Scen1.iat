@@ -10,31 +10,23 @@
 					"CurrentState": "S0",
 					"NextState": "S1",
 					"Meaning": "-",
-					"Style": "-",
-					"Utterance": "\"Boa Noite!\"",
-					"UtteranceId": "TTS-044DFE17E5C33B1A293D8D70FD967ECC"
-				}, 
-				{
-					"CurrentState": "S1",
-					"NextState": "S1-Neutral",
-					"Meaning": "-",
-					"Style": "-",
-					"Utterance": "\"Boa noite.\"",
-					"UtteranceId": "TTS-88F53BDE2ACC88FEB6AC963FCF98D0D0"
-				}, 
-				{
-					"CurrentState": "S0",
-					"NextState": "S1",
-					"Meaning": "-",
-					"Style": "-",
+					"Style": "Polite(-1)",
 					"Utterance": "\"Então, pode-se entrar?\"",
 					"UtteranceId": "TTS-54096167DE1D55330D39E91591C2D463"
+				}, 
+				{
+					"CurrentState": "Start",
+					"NextState": "S0",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "... Obrigado. Boa noite!",
+					"UtteranceId": "TTS-C8112B68E73D8FEB07D1134F541F3586"
 				}, 
 				{
 					"CurrentState": "S1",
 					"NextState": "S1-Negative",
 					"Meaning": "-",
-					"Style": "-",
+					"Style": "Negative",
 					"Utterance": "\"O que é que queres?!\"",
 					"UtteranceId": "TTS-EB782094080C5DEB228E58BE4BB2FC85"
 				}, 
@@ -42,23 +34,31 @@
 					"CurrentState": "S1",
 					"NextState": "S1-Positive",
 					"Meaning": "-",
-					"Style": "-",
+					"Style": "Positive",
 					"Utterance": "\"Viva, boa noite!\"",
 					"UtteranceId": "TTS-3E8BC0902848F4EC15AD42C5A4E99B3C"
 				}, 
 				{
-					"CurrentState": "Start",
-					"NextState": "S0",
+					"CurrentState": "S1",
+					"NextState": "S1-Neutral",
 					"Meaning": "-",
-					"Style": "-",
-					"Utterance": "... Obrigado. Boa noite!",
-					"UtteranceId": "TTS-C8112B68E73D8FEB07D1134F541F3586"
+					"Style": "Neutral",
+					"Utterance": "\"Boa noite.\"",
+					"UtteranceId": "TTS-88F53BDE2ACC88FEB6AC963FCF98D0D0"
 				}, 
 				{
 					"CurrentState": "S0",
 					"NextState": "S1",
 					"Meaning": "-",
-					"Style": "-",
+					"Style": "Polite(1)",
+					"Utterance": "\"Boa Noite!\"",
+					"UtteranceId": "TTS-044DFE17E5C33B1A293D8D70FD967ECC"
+				}, 
+				{
+					"CurrentState": "S0",
+					"NextState": "S1",
+					"Meaning": "-",
+					"Style": "Polite(1)",
 					"Utterance": "\"Olá.\"",
 					"UtteranceId": "TTS-080FFA2C9C4FF27D2416EFFF6F9A0044"
 				}]
