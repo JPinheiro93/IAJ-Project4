@@ -4,7 +4,7 @@
 			"classId": 0,
 			"KnowledgeBase":
 				{
-					"Perspective": "BouncerAngry",
+					"Perspective": "BouncerAngryReactive",
 					"Knowledge":
 						{
 							"SELF":
@@ -17,12 +17,12 @@
 			"BodyName": null,
 			"VoiceName": null,
 			"EmotionalAppraisalAssetSource": "App2.ea",
-			"EmotionalDecisionMakingSource": "..\\SimpleSpeak.edm",
-			"SocialImportanceAssetSource": null,
+			"EmotionalDecisionMakingSource": "edm1.edm",
+			"SocialImportanceAssetSource": "si1.si",
 			"CommeillFautAssetSource": null,
 			"EmotionalState":
 				{
-					"Mood": -4,
+					"Mood": -2,
 					"initialTick": 0,
 					"EmotionalPool": [],
 					"AppraisalConfiguration":

@@ -3,64 +3,744 @@
 		{
 			"classId": 0,
 			"ScenarioName": "Urban Beach Bouncer",
-			"Description": "You, our player, want to join a party taking place at Urban Beach. To get in, you'll have to convince the bouncer.\r\n\r\nApp1 -> If you're polite, since the bouncer is happy, he willl get happier\r\nApp2 -> If you're rude, since the bouncer is angry, he will get angrier",
+			"Description": "You, our player, want to join a party taking place at Urban Beach. To get in, you'll have to convince the bouncer.\r\n\r\n-----------------------------------------------------------------\r\n\r\nApp1 -> If you're polite, the bouncer willl get happier easily.\r\nApp2 -> If you're rude, the bouncer will get angrier easily.\r\nEdm1 -> The bouncer is sentimental, so his mood will impact his answers more.\r\nEdm2 -> The bouncer is more passive, so his mood doesn't have much impact (only in extreme cases).\r\n\r\n-----------------------------------------------------------------\r\n\r\n4 NPC's:\r\n\r\nID 1: BouncerHappyReactive => mood starts at +2, uses App1 and Edm1\r\nID 2: BouncerHappyImpassive => mood starts at +2, uses App1 and Edm2\r\nID 3: BouncerAngryReactive => mood starts at -2, uses App2 and Edm1\r\nID 4: BouncerAngryImpassive => mood starts at -2, uses App2 and Edm2\r\n",
 			"CharacterSources": ["RPC\\Player.rpc", "RPC\\NPCApp1EDM1.rpc", "RPC\\NPCApp1EDM2.rpc", "RPC\\NPCApp2EDM1.rpc", "RPC\\NPCApp2EDM2.rpc"],
 			"Dialogues": [
 				{
-					"CurrentState": "S0",
-					"NextState": "S1",
-					"Meaning": "-",
+					"CurrentState": "P3",
+					"NextState": "N4",
+					"Meaning": "Polite(1)",
 					"Style": "-",
-					"Utterance": "\"Boa Noite!\"",
-					"UtteranceId": "TTS-044DFE17E5C33B1A293D8D70FD967ECC"
+					"Utterance": "Peço desculpa… poderia entrar se faz favor?",
+					"UtteranceId": "TTS-6F5236A587EC116F6ED070B28D9CAA04"
 				}, 
 				{
-					"CurrentState": "S1",
-					"NextState": "S1-Neutral",
-					"Meaning": "-",
+					"CurrentState": "P1",
+					"NextState": "N1",
+					"Meaning": "Polite(1)",
 					"Style": "-",
-					"Utterance": "\"Boa noite.\"",
-					"UtteranceId": "TTS-88F53BDE2ACC88FEB6AC963FCF98D0D0"
+					"Utterance": "Boa noite, amigo!",
+					"UtteranceId": "TTS-5DA2F9CB9653782D76EC215151750D61"
 				}, 
 				{
-					"CurrentState": "S0",
-					"NextState": "S1",
+					"CurrentState": "N1",
+					"NextState": "P2",
 					"Meaning": "-",
-					"Style": "-",
-					"Utterance": "\"Então, pode-se entrar?\"",
-					"UtteranceId": "TTS-54096167DE1D55330D39E91591C2D463"
+					"Style": "Positive",
+					"Utterance": "Viva, boa noite!",
+					"UtteranceId": "TTS-5CD9AB840333C198FDA1D342611B1D13"
 				}, 
 				{
-					"CurrentState": "S1",
-					"NextState": "S1-Negative",
+					"CurrentState": "N1",
+					"NextState": "P3",
 					"Meaning": "-",
-					"Style": "-",
-					"Utterance": "\"O que é que queres?!\"",
-					"UtteranceId": "TTS-EB782094080C5DEB228E58BE4BB2FC85"
+					"Style": "Negative",
+					"Utterance": "O que é que queres?!",
+					"UtteranceId": "TTS-BE5ED797488D13D2AD4A7B265C4A7FF4"
 				}, 
 				{
-					"CurrentState": "S1",
-					"NextState": "S1-Positive",
-					"Meaning": "-",
+					"CurrentState": "P1",
+					"NextState": "N1",
+					"Meaning": "Polite(0)",
 					"Style": "-",
-					"Utterance": "\"Viva, boa noite!\"",
-					"UtteranceId": "TTS-3E8BC0902848F4EC15AD42C5A4E99B3C"
+					"Utterance": "Olá.",
+					"UtteranceId": "TTS-03C1B9963CD32C3DB9088C35C7CDE2A8"
+				}, 
+				{
+					"CurrentState": "N1",
+					"NextState": "P2",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Boa noite.",
+					"UtteranceId": "TTS-F34026BD11B6B053C08BE60BC61013C1"
+				}, 
+				{
+					"CurrentState": "P2",
+					"NextState": "N7",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Agora que já despachámos a conversa da treta, posso entrar?",
+					"UtteranceId": "TTS-95760D67126B4EE78BB32E1C7270EF18"
+				}, 
+				{
+					"CurrentState": "P3",
+					"NextState": "N5",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Excedi-me um bocado, desculpe! Posso entrar?",
+					"UtteranceId": "TTS-4D273BCCD4AFA3B24A671050038CB62A"
+				}, 
+				{
+					"CurrentState": "P5",
+					"NextState": "N6",
+					"Meaning": "Polte(-1)",
+					"Style": "-",
+					"Utterance": "O gato comeu-te a língua?",
+					"UtteranceId": "TTS-9D23CDB4AF7A608308B0A1111823D8D1"
+				}, 
+				{
+					"CurrentState": "N3",
+					"NextState": "P3",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Com essa atitude não vais longe…",
+					"UtteranceId": "TTS-FEFE68379CFC7E65D5CBD8BDB23E5E9F"
+				}, 
+				{
+					"CurrentState": "N3",
+					"NextState": "P5",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "…",
+					"UtteranceId": "TTS-2F8ED7FAFD3C1784A3BE4DA8EB3D106A"
+				}, 
+				{
+					"CurrentState": "N3",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Rua contigo! Aqui de certeza que não entras!",
+					"UtteranceId": "TTS-103E11A4DEF745B819A4B516B28AD9E7"
+				}, 
+				{
+					"CurrentState": "P5",
+					"NextState": "N5",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "…peço desculpa. Seria possível entrar?",
+					"UtteranceId": "TTS-53D12962D3B777CC3D3E17DA5FDF13DE"
+				}, 
+				{
+					"CurrentState": "N6",
+					"NextState": "P5",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "…",
+					"UtteranceId": "TTS-2F8ED7FAFD3C1784A3BE4DA8EB3D106A"
+				}, 
+				{
+					"CurrentState": "N6",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Se não queres ficar sem a tua, desaparece daqui.",
+					"UtteranceId": "TTS-9F66A6F9EFA2BBF5702EC149B592686B"
+				}, 
+				{
+					"CurrentState": "N4",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Deves-te achar muito engraçadinho. Desaparece.",
+					"UtteranceId": "TTS-BE777BE853E6206A385E9AD27671C624"
+				}, 
+				{
+					"CurrentState": "N4",
+					"NextState": "P6",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Hrmph. ",
+					"UtteranceId": "TTS-1CA35AF553F3F546C69619C1C308FC05"
+				}, 
+				{
+					"CurrentState": "N4",
+					"NextState": "P6",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Melhor, melhor.",
+					"UtteranceId": "TTS-D6A4EE9B06D186218C0566CB785261C8"
+				}, 
+				{
+					"CurrentState": "N5",
+					"NextState": "P6",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Vá, boa disposição é bom, mas calminha a partir de agora.",
+					"UtteranceId": "TTS-4400619AE6AD7D92287C865EDD19A457"
+				}, 
+				{
+					"CurrentState": "N5",
+					"NextState": "P6",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Desculpas aceites.",
+					"UtteranceId": "TTS-3BA18638237FF3F9AC8CA545D04B721E"
+				}, 
+				{
+					"CurrentState": "N5",
+					"NextState": "P6",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "A partir de agora só respondes se eu te dirigir palavra, entendido?!",
+					"UtteranceId": "TTS-F381A744B23F79D30F6BF8FDE360FEC4"
+				}, 
+				{
+					"CurrentState": "P2",
+					"NextState": "N6",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "O que preciso para entrar?",
+					"UtteranceId": "TTS-AA426C41CEEB24766C01B558FC95B181"
+				}, 
+				{
+					"CurrentState": "P2",
+					"NextState": "N6",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Seria possível entrar?",
+					"UtteranceId": "TTS-AD013258F323BB50AF1BC07C586C2DE2"
+				}, 
+				{
+					"CurrentState": "P3",
+					"NextState": "N3",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Já te calavas e deixavas-me entrar!",
+					"UtteranceId": "TTS-FB5216B635A27F709C075CE72F745710"
+				}, 
+				{
+					"CurrentState": "P7",
+					"NextState": "N6",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Tem razão. Peço desculpa. O que preciso para entrar?",
+					"UtteranceId": "TTS-A7D81B4687C06B775B1E2044A8AD2376"
+				}, 
+				{
+					"CurrentState": "P6",
+					"NextState": "N6",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Então, posso entrar?",
+					"UtteranceId": "TTS-D2ABB7D658CFA8C7E3EF6804B10B2ADA"
+				}, 
+				{
+					"CurrentState": "N6",
+					"NextState": "P8",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Preciso só do BI, colega.",
+					"UtteranceId": "TTS-17A36C8E48225989E33873F41C6C153F"
+				}, 
+				{
+					"CurrentState": "N6",
+					"NextState": "P8",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Preciso da sua identificação, se faz favor.",
+					"UtteranceId": "TTS-4E3AC11F4EBAF7A152EEA7365920B2EE"
+				}, 
+				{
+					"CurrentState": "N6",
+					"NextState": "P8",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Identificação e boquinha calada.",
+					"UtteranceId": "TTS-16067A1510ECF0588FEF6104B30D2502"
+				}, 
+				{
+					"CurrentState": "N7",
+					"NextState": "P7",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Depende. Vais melhorar essa atitude?",
+					"UtteranceId": "TTS-CB1DB405DADB100695D9509EACC3E4E8"
+				}, 
+				{
+					"CurrentState": "N7",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Engraçadinho. Aqui não entras de certeza!",
+					"UtteranceId": "TTS-41B9A1574A8F555B2907A2803B0C3C6D"
+				}, 
+				{
+					"CurrentState": "N7",
+					"NextState": "P7",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Vá, acalmar a disposição, sim? ",
+					"UtteranceId": "TTS-129D27AD4AC5357E31B252A3BFE626CE"
+				}, 
+				{
+					"CurrentState": "P8",
+					"NextState": "N12",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Er… é mesmo preciso…?",
+					"UtteranceId": "TTS-7D1A9CFBE0D4E823093C3803E6780AD2"
+				}, 
+				{
+					"CurrentState": "P7",
+					"NextState": "N8",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Vá lá! Deixe-me entrar! Tenho mais que fazer!",
+					"UtteranceId": "TTS-7851FAF7EC1099C63BAFCA64E7D12ADD"
+				}, 
+				{
+					"CurrentState": "P7",
+					"NextState": "N6",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "OK, OK… O que preciso para entrar?",
+					"UtteranceId": "TTS-44591BAE38004B5833ADCB107690EA1B"
+				}, 
+				{
+					"CurrentState": "N8",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Também eu tenho mais que fazer do que te ouvir. Sai-me da frente.",
+					"UtteranceId": "TTS-6465427CCCB869DE0ABC39EEC65E41E1"
+				}, 
+				{
+					"CurrentState": "N8",
+					"NextState": "P7",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Não ouvi bem. Queres tentar outra vez?",
+					"UtteranceId": "TTS-7E1C2DE9A40BF8DCDF4D41E5F45EF76A"
+				}, 
+				{
+					"CurrentState": "P9",
+					"NextState": "N11",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Chateias-me se eu disser alguma coisa, logo fico calado.",
+					"UtteranceId": "TTS-2240C346B3170CEDF7F56A69AD18E899"
+				}, 
+				{
+					"CurrentState": "P8",
+					"NextState": "N9",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "…",
+					"UtteranceId": "TTS-2F8ED7FAFD3C1784A3BE4DA8EB3D106A"
+				}, 
+				{
+					"CurrentState": "P8",
+					"NextState": "N14",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Aqui tem!",
+					"UtteranceId": "TTS-CEFBD824F6BE43E78469F73AD9ECF058"
+				}, 
+				{
+					"CurrentState": "P8",
+					"NextState": "N14",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Toma mas é. Despachar, sim?",
+					"UtteranceId": "TTS-B1ABB2990BA33BB1D958538B527C0F3A"
+				}, 
+				{
+					"CurrentState": "N9",
+					"NextState": "P9",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Está tudo bem?",
+					"UtteranceId": "TTS-497A3C524BA4C5CACCE90CBC49613E18"
+				}, 
+				{
+					"CurrentState": "N9",
+					"NextState": "P9",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "O que se passa?",
+					"UtteranceId": "TTS-93800F7E48160E0D03EA77F38BB9AB91"
+				}, 
+				{
+					"CurrentState": "N9",
+					"NextState": "P9",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Depressa. Há gente à espera.",
+					"UtteranceId": "TTS-9B265F7CD1CAC7122AD760C58C98D687"
+				}, 
+				{
+					"CurrentState": "P9",
+					"NextState": "N10",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Recuso-me.",
+					"UtteranceId": "TTS-909A60A98F469090776BBF352CBBB1CF"
+				}, 
+				{
+					"CurrentState": "P10",
+					"NextState": "N14",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Pronto, tudo bem. Aqui tem…",
+					"UtteranceId": "TTS-529909D8DC5F4852EDBCABF49CB0F4F8"
+				}, 
+				{
+					"CurrentState": "P9",
+					"NextState": "N14",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Ah, desculpe. Aqui tem.",
+					"UtteranceId": "TTS-B44B526EF6039CCB7E6B8CF56E12B7F1"
+				}, 
+				{
+					"CurrentState": "P9",
+					"NextState": "N12",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Er… é mesmo preciso identificação?..",
+					"UtteranceId": "TTS-208D8F4E66885464E25356C08604AADB"
+				}, 
+				{
+					"CurrentState": "N10",
+					"NextState": "P8",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Vá, não sejas difícil. Identificação.",
+					"UtteranceId": "TTS-6EE3DA80D05F21BBFCF69D098AA00777"
+				}, 
+				{
+					"CurrentState": "N10",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "E eu também me recuso a deixar-te entrar. Rua.",
+					"UtteranceId": "TTS-2AF946DCE681B648B857FF7786567518"
+				}, 
+				{
+					"CurrentState": "N11",
+					"NextState": "P8",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Vá, não sejas difícil. Identificação.",
+					"UtteranceId": "TTS-6EE3DA80D05F21BBFCF69D098AA00777"
+				}, 
+				{
+					"CurrentState": "N10",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Não te preocupes, não tens de lidar com os meus problemas de humor nem mais um segundo. Rua.",
+					"UtteranceId": "TTS-EEE0E64F4B882FCDDAFFEA4759A832DB"
+				}, 
+				{
+					"CurrentState": "N12",
+					"NextState": "P10",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Evidente que é preciso…",
+					"UtteranceId": "TTS-CE7A1643966D2BFBAB304E16A0E81480"
+				}, 
+				{
+					"CurrentState": "N12",
+					"NextState": "P10",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Mas estás a brincar comigo? Mostra-me a identificação mas é!",
+					"UtteranceId": "TTS-D207546F760D055A8AE33411C1752BAD"
+				}, 
+				{
+					"CurrentState": "N12",
+					"NextState": "P10",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Peço desculpa, mas regras são regras. Identificação se faz favor.",
+					"UtteranceId": "TTS-A5744CDCF2633194BE505454820E0447"
+				}, 
+				{
+					"CurrentState": "P10",
+					"NextState": "N10",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Recuso-me. É um ultraje pedir-me identificação!",
+					"UtteranceId": "TTS-C9B3D243270F6902C8FE5EC419129668"
+				}, 
+				{
+					"CurrentState": "P11",
+					"NextState": "N15",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Muito obrigado. Com licença.",
+					"UtteranceId": "TTS-3B175A577DE2B5BA35DC03DF01324BDB"
+				}, 
+				{
+					"CurrentState": "P10",
+					"NextState": "N13",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Esqueci-me da identificação em casa…",
+					"UtteranceId": "TTS-3753AA547D95A0F3B45878C1A189A17D"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "End",
+					"Meaning": "NotFriends",
+					"Style": "Neutral",
+					"Utterance": "Sem identificação não o posso deixar entrar. Próximo.",
+					"UtteranceId": "TTS-FDA19ED73E4352CAAB00E3397B173481"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "End",
+					"Meaning": "NotFriends",
+					"Style": "Positive",
+					"Utterance": "Peço desculpa, mas preciso da identificação para o deixar entrar. Próximo.",
+					"UtteranceId": "TTS-5D09DFD685312EFB32F1739B2BE0E237"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "End",
+					"Meaning": "NotFriends",
+					"Style": "Negative",
+					"Utterance": "É preciso ter lata para me fazer perder este tempo todo. Desaparece!",
+					"UtteranceId": "TTS-B08E79689BE666F5ECCB827D220E4066"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "P11",
+					"Meaning": "Friends",
+					"Style": "Positive",
+					"Utterance": "Vá… só desta vez, está bem? Passa lá.",
+					"UtteranceId": "TTS-2B155043346C74F50B697792CA8B3D4E"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "P11",
+					"Meaning": "Friends",
+					"Style": "Neutral",
+					"Utterance": "Normalmente não é permitido, mas… da próxima não se esqueça.",
+					"UtteranceId": "TTS-91EF9927B642FF923AC262378AB192E9"
+				}, 
+				{
+					"CurrentState": "N13",
+					"NextState": "End",
+					"Meaning": "Friends",
+					"Style": "Negative",
+					"Utterance": "Até te podia deixar entrar, mas com a atitude que tens mostrado, não me parece. Cresce e aparece.",
+					"UtteranceId": "TTS-70B498678604523D344275E9710AC127"
+				}, 
+				{
+					"CurrentState": "N14",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Parece estar tudo em ordem! Faça favor!",
+					"UtteranceId": "TTS-CB704783C4135B67228AF08B62AF842D"
+				}, 
+				{
+					"CurrentState": "N14",
+					"NextState": "P12",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Parece estar tudo em ordem. Não leva consigo bebidas alcóolicas?",
+					"UtteranceId": "TTS-80D8E1AC0805A0225E261E041F186C08"
+				}, 
+				{
+					"CurrentState": "N14",
+					"NextState": "P12",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Hrmph. Trazes alcóol contigo?",
+					"UtteranceId": "TTS-194237DB47AA6DF1F3B7A92D3A2A4841"
+				}, 
+				{
+					"CurrentState": "P12",
+					"NextState": "N19",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "O que é que tem a haver com isso? Já lhe mostrei a identificação, deixe-me passar mas é!",
+					"UtteranceId": "TTS-3C6696F4537DF08A45B285488949FD15"
+				}, 
+				{
+					"CurrentState": "P11",
+					"NextState": "N15",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Estava a ver que não. Bora lá!",
+					"UtteranceId": "TTS-AA43D9CA9D12CF1B059CC29CC2CEE2B7"
+				}, 
+				{
+					"CurrentState": "P11",
+					"NextState": "N15",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Obrigado! Tenha uma boa noite!",
+					"UtteranceId": "TTS-AE22ED44FE10CEBB71746668C27E7703"
+				}, 
+				{
+					"CurrentState": "N15",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Boa noite. Divirta-se. Próximo!...",
+					"UtteranceId": "TTS-D60155811B6B38886B29460B86C17AF1"
+				}, 
+				{
+					"CurrentState": "N15",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Próximo!...",
+					"UtteranceId": "TTS-DE415ACD40CFD9A818B236F0CC7312EE"
+				}, 
+				{
+					"CurrentState": "N15",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Não me faças arrepender de te ter deixado passar… Próximo!...",
+					"UtteranceId": "TTS-072D0D0FB7312A244E83266DB8F529BF"
+				}, 
+				{
+					"CurrentState": "P12",
+					"NextState": "N16",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "Não.",
+					"UtteranceId": "TTS-9A2943E0E5435D63F6FD3E75088157EB"
+				}, 
+				{
+					"CurrentState": "P13",
+					"NextState": "N18",
+					"Meaning": "Polite(-1)",
+					"Style": "-",
+					"Utterance": "Já lhe disse que não tenho nada. Que mais quer de mim?!",
+					"UtteranceId": "TTS-AF16611678D3AB40E6D33760DD3A241D"
+				}, 
+				{
+					"CurrentState": "P12",
+					"NextState": "N16",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Não, não tenho nada do género comigo…",
+					"UtteranceId": "TTS-D211800BB64443EC0893ADF14C3EAB0B"
+				}, 
+				{
+					"CurrentState": "N16",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Tudo bem, assim sendo parece estar tudo em ordem. Faça favor.",
+					"UtteranceId": "TTS-ADB6EF8E452D48F3B2B19206ECEE6AC2"
+				}, 
+				{
+					"CurrentState": "N16",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Assim parece. Faça favor.",
+					"UtteranceId": "TTS-7BF9A66A26776DB1B259513A6CAFFAEF"
+				}, 
+				{
+					"CurrentState": "N16",
+					"NextState": "P13",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Tens a certeza…? Não me vou deparar contigo mais tarde a fazer asneiras?",
+					"UtteranceId": "TTS-8A5138AA86015A28FB3B4C71B4AD5787"
+				}, 
+				{
+					"CurrentState": "P13",
+					"NextState": "N17",
+					"Meaning": "Polite(1)",
+					"Style": "-",
+					"Utterance": "Garanto-lhe que não trago nada do género comigo.",
+					"UtteranceId": "TTS-9318463B208B8332526225F8C03798B3"
 				}, 
 				{
 					"CurrentState": "Start",
-					"NextState": "S0",
+					"NextState": "P1",
 					"Meaning": "-",
-					"Style": "-",
+					"Style": "Neutral",
 					"Utterance": "... Obrigado. Boa noite!",
 					"UtteranceId": "TTS-C8112B68E73D8FEB07D1134F541F3586"
 				}, 
 				{
-					"CurrentState": "S0",
-					"NextState": "S1",
+					"CurrentState": "N17",
+					"NextState": "P11",
 					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Tudo bem, assim sendo parece estar tudo em ordem. Faça favor.",
+					"UtteranceId": "TTS-ADB6EF8E452D48F3B2B19206ECEE6AC2"
+				}, 
+				{
+					"CurrentState": "N17",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Assim parece. Faça favor.",
+					"UtteranceId": "TTS-7BF9A66A26776DB1B259513A6CAFFAEF"
+				}, 
+				{
+					"CurrentState": "N17",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Não sei se acredite, mas vou dar-lhe uma chance. Entre e comporte-se.",
+					"UtteranceId": "TTS-9B286B404F2312A45242836E08EE4214"
+				}, 
+				{
+					"CurrentState": "N18",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Peço desculpa, mas tenho de garantir que as regras se cumprem. Parece estar tudo bem então. Faça favor.",
+					"UtteranceId": "TTS-5B9484DE79D5F9FD00A57526FAED9C72"
+				}, 
+				{
+					"CurrentState": "N18",
+					"NextState": "P11",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Nada. Parece estar tudo em ordem. Faça favor.",
+					"UtteranceId": "TTS-AE697995AF9B0AF7E007821F3AD5C8C9"
+				}, 
+				{
+					"CurrentState": "N18",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Boa atitude e respeito pelos outros. Duas características necessárias para poder entrar aqui. Rua.",
+					"UtteranceId": "TTS-D86E6ACE0B1147287076D187C38CD8CF"
+				}, 
+				{
+					"CurrentState": "N19",
+					"NextState": "P12",
+					"Meaning": "-",
+					"Style": "Neutral",
+					"Utterance": "Faz parte do meu trabalho. Agora responda se faz favor. Traz álcool consigo?",
+					"UtteranceId": "TTS-6AF086BCCC9E521E6DAB83D604CC63A2"
+				}, 
+				{
+					"CurrentState": "N19",
+					"NextState": "P12",
+					"Meaning": "-",
+					"Style": "Positive",
+					"Utterance": "Vá, não sejas assim. Tens álcool contigo ou não?",
+					"UtteranceId": "TTS-58C8D2F0606FD38A509C387914AC9C79"
+				}, 
+				{
+					"CurrentState": "N19",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Negative",
+					"Utterance": "Não me parece. Sai mas é da minha frente. Próximo!",
+					"UtteranceId": "TTS-69D47C5F8FF19A204BB32183F39DFD90"
+				}, 
+				{
+					"CurrentState": "P1",
+					"NextState": "N1",
+					"Meaning": "Polite(-1)",
 					"Style": "-",
-					"Utterance": "\"Olá.\"",
-					"UtteranceId": "TTS-080FFA2C9C4FF27D2416EFFF6F9A0044"
+					"Utterance": "Então, pode-se entrar ou não?",
+					"UtteranceId": "TTS-7AEAF96EA540B80A570B1C659454CA02"
+				}, 
+				{
+					"CurrentState": "P6",
+					"NextState": "N6",
+					"Meaning": "Polite(0)",
+					"Style": "-",
+					"Utterance": "É preciso alguma coisa?",
+					"UtteranceId": "TTS-4BC50E8066E63899096413C29A439B30"
 				}]
 		},
 	"types": [

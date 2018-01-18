@@ -8,21 +8,29 @@
 					"AppraisalWeight": 1,
 					"Rules": [
 						{
-							"EventName": "Event(Action-End, Player, Speak(*, *, *, Rude), SELF)",
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
-									"Set": []
+									"Set": ["1 = [x]"]
 								},
-							"Desirability": -3,
-							"Praiseworthiness": -3
+							"Desirability": 8
 						}, 
 						{
-							"EventName": "Event(Action-End, SELF, Speak(*, *, GetOut, *), *)",
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
-									"Set": []
+									"Set": ["-1 = [x]"]
 								},
 							"Desirability": -10
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
+							"Conditions":
+								{
+									"Set": ["0 = [x]"]
+								},
+							"Desirability": 3,
+							"Praiseworthiness": -5
 						}]
 				},
 			"EmotionDispositions": [
@@ -30,6 +38,21 @@
 					"Emotion": "*",
 					"Decay": 1,
 					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Joy",
+					"Decay": 1,
+					"Threshold": 3
+				}, 
+				{
+					"Emotion": "Admiration",
+					"Decay": 1,
+					"Threshold": 5
+				}, 
+				{
+					"Emotion": "Gratitude",
+					"Decay": 1,
+					"Threshold": 3
 				}]
 		},
 	"types": [

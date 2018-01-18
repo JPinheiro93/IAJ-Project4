@@ -8,21 +8,29 @@
 					"AppraisalWeight": 1,
 					"Rules": [
 						{
-							"EventName": "Event(Action-End, Player, Speak(*, *, *, Polite), SELF)",
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
-									"Set": []
-								},
-							"Desirability": 3,
-							"Praiseworthiness": 3
-						}, 
-						{
-							"EventName": "Event(Action-End, SELF, Speak(*, *, GetIn, *), *)",
-							"Conditions":
-								{
-									"Set": []
+									"Set": ["1 = [x]"]
 								},
 							"Desirability": 10
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
+							"Conditions":
+								{
+									"Set": ["[x] < 0"]
+								},
+							"Desirability": -8
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
+							"Conditions":
+								{
+									"Set": ["0 = [x]"]
+								},
+							"Desirability": 5,
+							"Praiseworthiness": -3
 						}]
 				},
 			"EmotionDispositions": [
@@ -30,6 +38,21 @@
 					"Emotion": "*",
 					"Decay": 1,
 					"Threshold": 1
+				}, 
+				{
+					"Emotion": "Reproach",
+					"Decay": 1,
+					"Threshold": 3
+				}, 
+				{
+					"Emotion": "Anger",
+					"Decay": 1,
+					"Threshold": 5
+				}, 
+				{
+					"Emotion": "Distress",
+					"Decay": 1,
+					"Threshold": 3
 				}]
 		},
 	"types": [
