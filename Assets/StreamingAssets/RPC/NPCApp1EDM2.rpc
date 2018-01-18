@@ -4,7 +4,7 @@
 			"classId": 0,
 			"KnowledgeBase":
 				{
-					"Perspective": "BouncerHappy2",
+					"Perspective": "BouncerHappyImpassive",
 					"Knowledge":
 						{
 							"SELF":
@@ -17,12 +17,12 @@
 			"BodyName": "Male",
 			"VoiceName": null,
 			"EmotionalAppraisalAssetSource": "App1.ea",
-			"EmotionalDecisionMakingSource": "..\\SimpleSpeak.edm",
-			"SocialImportanceAssetSource": null,
+			"EmotionalDecisionMakingSource": "edm2.edm",
+			"SocialImportanceAssetSource": "si1.si",
 			"CommeillFautAssetSource": null,
 			"EmotionalState":
 				{
-					"Mood": 4,
+					"Mood": 2,
 					"initialTick": 0,
 					"EmotionalPool": [],
 					"AppraisalConfiguration":

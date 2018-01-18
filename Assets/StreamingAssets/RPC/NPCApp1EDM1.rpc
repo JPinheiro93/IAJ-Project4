@@ -4,13 +4,14 @@
 			"classId": 0,
 			"KnowledgeBase":
 				{
-					"Perspective": "BouncerHappy",
+					"Perspective": "BouncerHappyReactive",
 					"Knowledge":
 						{
 							"SELF":
 								{
 									"DialogueState(Player)": "Start, 1",
-									"Has(Floor)": "BouncerHappy, 1"
+									"Has(Floor)": "BouncerHappyReactive, 1",
+									"IsFriend(BouncerHappyReactive, Player)": "True, 1"
 								}
 						}
 				},
@@ -18,11 +19,11 @@
 			"VoiceName": null,
 			"EmotionalAppraisalAssetSource": "App1.ea",
 			"EmotionalDecisionMakingSource": "edm1.edm",
-			"SocialImportanceAssetSource": null,
+			"SocialImportanceAssetSource": "si1.si",
 			"CommeillFautAssetSource": null,
 			"EmotionalState":
 				{
-					"Mood": 4,
+					"Mood": 2,
 					"initialTick": 0,
 					"EmotionalPool": [],
 					"AppraisalConfiguration":

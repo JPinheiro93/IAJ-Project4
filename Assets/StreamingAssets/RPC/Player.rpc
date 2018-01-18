@@ -7,14 +7,17 @@
 					"Perspective": "Player",
 					"Knowledge":
 						{
-
+							"SELF":
+								{
+									"IsFriend(Player, BouncerHappyReactive)": "True, 1"
+								}
 						}
 				},
 			"BodyName": null,
 			"VoiceName": null,
 			"EmotionalAppraisalAssetSource": null,
 			"EmotionalDecisionMakingSource": "..\\SimpleSpeak.edm",
-			"SocialImportanceAssetSource": null,
+			"SocialImportanceAssetSource": "si1.si",
 			"CommeillFautAssetSource": null,
 			"EmotionalState":
 				{

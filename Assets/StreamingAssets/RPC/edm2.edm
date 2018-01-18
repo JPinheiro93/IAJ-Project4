@@ -5,6 +5,16 @@
 			"DefaultActionPriority": null,
 			"ActionTendencies": [
 				{
+					"Action": "Speak([cs], [ns], [m], Positive)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], [m], Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 4"]
+						},
+					"Priority": 1
+				}, 
+				{
 					"Action": "Speak([cs], [ns], [m], Neutral)",
 					"Target": "[x]",
 					"Type": "[x]",
@@ -15,22 +25,12 @@
 					"Priority": 0
 				}, 
 				{
-					"Action": "Speak([cs], [ns], [m], Positive)",
-					"Target": "[x]",
-					"Type": "[x]",
-					"Conditions":
-						{
-							"Set": ["ValidDialogue([cs], [ns], [m], Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1"]
-						},
-					"Priority": 1
-				}, 
-				{
 					"Action": "Speak([cs], [ns], [m], Negative)",
 					"Target": "[x]",
 					"Type": "[x]",
 					"Conditions":
 						{
-							"Set": ["ValidDialogue([cs], [ns], [m], Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1"]
+							"Set": ["ValidDialogue([cs], [ns], [m], Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -4"]
 						},
 					"Priority": 1
 				}, 
@@ -40,7 +40,7 @@
 					"Type": "[x]",
 					"Conditions":
 						{
-							"Set": ["ValidDialogue([cs], [ns], Friends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1"]
+							"Set": ["ValidDialogue([cs], [ns], Friends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -4"]
 						},
 					"Priority": 3
 				}, 
@@ -60,7 +60,7 @@
 					"Type": "[x]",
 					"Conditions":
 						{
-							"Set": ["ValidDialogue([cs], [ns], Friends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1"]
+							"Set": ["ValidDialogue([cs], [ns], Friends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 4"]
 						},
 					"Priority": 3
 				}, 
@@ -70,7 +70,7 @@
 					"Type": "[x]",
 					"Conditions":
 						{
-							"Set": ["ValidDialogue([cs], [ns], NotFriends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1"]
+							"Set": ["ValidDialogue([cs], [ns], NotFriends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -4"]
 						},
 					"Priority": 3
 				}, 
@@ -90,7 +90,7 @@
 					"Type": "[x]",
 					"Conditions":
 						{
-							"Set": ["ValidDialogue([cs], [ns], NotFriends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1"]
+							"Set": ["ValidDialogue([cs], [ns], NotFriends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 4"]
 						},
 					"Priority": 3
 				}]
