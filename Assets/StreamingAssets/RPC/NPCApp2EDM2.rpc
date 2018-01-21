@@ -10,7 +10,8 @@
 							"SELF":
 								{
 									"DialogueState(Player)": "Start, 1",
-									"Has(Floor)": "Player, 1"
+									"Has(Floor)": "Player, 1",
+									"IsFriend(BouncerAngryImpassive, Player)": "True, 1"
 								}
 						}
 				},
