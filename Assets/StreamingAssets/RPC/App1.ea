@@ -11,7 +11,8 @@
 							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
-									"Set": ["1 = [x]"]
+									"Quantifier": "Universal",
+									"Set": ["[x] > 0"]
 								},
 							"Desirability": 10
 						}, 
@@ -19,6 +20,7 @@
 							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
+									"Quantifier": "Universal",
 									"Set": ["[x] < 0"]
 								},
 							"Desirability": -8
@@ -27,7 +29,7 @@
 							"EventName": "Event(Action-End, *, Speak(*, *, Polite([x]), *), *)",
 							"Conditions":
 								{
-									"Set": ["0 = [x]"]
+									"Set": []
 								},
 							"Desirability": 5,
 							"Praiseworthiness": -3

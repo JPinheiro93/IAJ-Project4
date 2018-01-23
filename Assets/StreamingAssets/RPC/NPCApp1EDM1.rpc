@@ -11,7 +11,8 @@
 								{
 									"DialogueState(Player)": "Start, 1",
 									"Has(Floor)": "BouncerHappyReactive, 1",
-									"IsFriend(BouncerHappyReactive, Player)": "True, 1"
+									"IsFriend(BouncerHappyReactive, Player)": "True, 1",
+									"IsFriend(Player, BouncerHappyReactive)": "True, 1"
 								}
 						}
 				},
