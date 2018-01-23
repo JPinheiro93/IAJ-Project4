@@ -1,0 +1,103 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"DefaultActionPriority": null,
+			"ActionTendencies": [ 
+				{
+					"Action": "Speak([cs], [ns], [m], Neutral)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], [m], Neutral) = True", "DialogueState([x]) = [cs]", "Has(Floor) = SELF"]
+						},
+					"Priority": 0
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [m], Positive)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], [m], Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1", "Has(Floor) = SELF"]
+						},
+					"Priority": 1
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [m], Negative)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], [m], Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF"]
+						},
+					"Priority": 1
+				}, 
+				{
+					"Action": "Speak([cs], [ns], Friends, Negative)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], Friends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF", "SI([x]) = 10"]
+						},
+					"Priority": 3
+				}, 
+				{
+					"Action": "Speak([cs], [ns], Friends, Neutral)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], Friends, Neutral) = True", "DialogueState([x]) = [cs]", "Has(Floor) = SELF", "SI([x]) = 10"]
+						},
+					"Priority": 2
+				}, 
+				{
+					"Action": "Speak([cs], [ns], Friends, Positive)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], Friends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1", "Has(Floor) = SELF", "SI([x]) = 10"]
+						},
+					"Priority": 3
+				}, 
+				{
+					"Action": "Speak([cs], [ns], NotFriends, Negative)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], NotFriends, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF", "SI([x]) < 10"]
+						},
+					"Priority": 3
+				}, 
+				{
+					"Action": "Speak([cs], [ns], NotFriends, Neutral)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], NotFriends, Neutral) = True", "DialogueState([x]) = [cs]", "Has(Floor) = SELF", "SI([x]) < 10"]
+						},
+					"Priority": 2
+				}, 
+				{
+					"Action": "Speak([cs], [ns], NotFriends, Positive)",
+					"Target": "[x]",
+					"Type": "[x]",
+					"Conditions":
+						{
+							"Set": ["ValidDialogue([cs], [ns], NotFriends, Positive) = True", "DialogueState([x]) = [cs]", "Mood(Self) > 1", "Has(Floor) = SELF", "SI([x]) < 10"]
+						},
+					"Priority": 3
+				}]
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "EmotionalDecisionMaking.EmotionalDecisionMakingAsset, EmotionalDecisionMaking, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}
