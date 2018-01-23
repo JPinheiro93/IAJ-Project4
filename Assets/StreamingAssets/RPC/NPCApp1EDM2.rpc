@@ -9,6 +9,8 @@
 						{
 							"SELF":
 								{
+									"DialogueState(BouncerAngryReactive)": "Start, 1",
+									"DialogueState(BouncerHappyImpassive)": "Start, 1",
 									"DialogueState(Player)": "Start, 1",
 									"Has(Floor)": "Player, 1"
 								}

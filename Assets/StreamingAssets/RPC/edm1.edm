@@ -7,63 +7,63 @@
 				{
 					"Action": "Speak([cs], [ns], SwitchToOther, Negative)",
 					"Target": "BouncerAngryReactive",
-					"Type": "[x]",
+					"Type": "BouncerAngryReactive",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToOther, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF"]
 						},
 					"Priority": 1
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], SwitchToOther, Neutral)",
 					"Target": "BouncerAngryReactive",
-					"Type": "[x]",
+					"Type": "BouncerAngryReactive",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToOther, Neutral) = True", "DialogueState([x]) = [cs]", "Has(Floor) = SELF"]
 						},
 					"Priority": 0
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], SwitchToOther, Negative)",
 					"Target": "BouncerAngryReactive",
-					"Type": "[x]",
+					"Type": "BouncerAngryReactive",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToOther, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF"]
 						},
 					"Priority": 1
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], SwitchToPlayer, Negative)",
 					"Target": "Player",
-					"Type": "[x]",
+					"Type": "Player",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToPlayer, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF"]
 						},
 					"Priority": 1
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], SwitchToPlayer, Neutral)",
 					"Target": "Player",
-					"Type": "[x]",
+					"Type": "Player",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToPlayer, Neutral) = True", "DialogueState([x]) = [cs]", "Has(Floor) = SELF"]
 						},
 					"Priority": 0
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], SwitchToPlayer, Negative)",
 					"Target": "Player",
-					"Type": "[x]",
+					"Type": "Player",
 					"Conditions":
 						{
 							"Set": ["ValidDialogue([cs], [ns], SwitchToPlayer, Negative) = True", "DialogueState([x]) = [cs]", "Mood(Self) < -1", "Has(Floor) = SELF"]
 						},
 					"Priority": 1
-				},
+				}, 
 				{
 					"Action": "Speak([cs], [ns], [m], Neutral)",
 					"Target": "[x]",
