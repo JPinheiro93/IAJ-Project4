@@ -45,7 +45,8 @@ public class ScenarioManager : MonoBehaviour
     private Button RestartButton;
 
     private IntegratedAuthoringToolAsset iat;
-    private RolePlayCharacterAsset agentRPC;
+    private RolePlayCharacterAsset agent1RPC;
+    private RolePlayCharacterAsset agent2RPC;
     private RolePlayCharacterAsset playerRPC;
 
     private List<DialogueStateActionDTO> playerDialogues;
@@ -70,11 +71,16 @@ public class ScenarioManager : MonoBehaviour
         iat = IntegratedAuthoringToolAsset.LoadFromFile(IATScenario);
         var characterSources = iat.GetAllCharacterSources().ToList();
 
-        //AGENT
-        agentRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[1].Source);
-        agentRPC.LoadAssociatedAssets();
-        iat.BindToRegistry(agentRPC.DynamicPropertiesRegistry);
-    
+        //AGENT 1
+        agent1RPC = RolePlayCharacterAsset.LoadFromFile(characterSources[1].Source);
+        agent1RPC.LoadAssociatedAssets();
+        iat.BindToRegistry(agent1RPC.DynamicPropertiesRegistry);
+
+        //AGENT 2
+        agent2RPC = RolePlayCharacterAsset.LoadFromFile(characterSources[2].Source);
+        agent2RPC.LoadAssociatedAssets();
+        iat.BindToRegistry(agent2RPC.DynamicPropertiesRegistry);
+
         //PLAYER
         playerRPC = RolePlayCharacterAsset.LoadFromFile(characterSources[0].Source);
         playerRPC.LoadAssociatedAssets();
@@ -130,20 +136,20 @@ public class ScenarioManager : MonoBehaviour
     {
         while (true)
         {
-            var SIPlayerAgent = agentRPC.GetBeliefValue("ToM(Player, SI(SELF))");
-            var SIAgentPlayer = agentRPC.GetBeliefValue("SI(Player)");
+            var SIPlayerAgent = agent1RPC.GetBeliefValue("ToM(Player, SI(SELF))");
+            var SIAgentPlayer = agent1RPC.GetBeliefValue("SI(Player)");
 
-            if (!agentRPC.GetAllActiveEmotions().Any())
+            if (!agent1RPC.GetAllActiveEmotions().Any())
             {
-                this.AgentInternalStateText.text = "Mood: " + agentRPC.Mood + ", Emotions: [], SI(A,P): " + SIAgentPlayer + " SI(P,A): " + SIPlayerAgent;
+                this.AgentInternalStateText.text = "Mood: " + agent1RPC.Mood + ", Emotions: [], SI(A,P): " + SIAgentPlayer + " SI(P,A): " + SIPlayerAgent;
             }
             else
             {
-                var aux = "Mood: " + agentRPC.Mood + ", Emotions: [";
+                var aux = "Mood: " + agent1RPC.Mood + ", Emotions: [";
 
                 StringBuilder builder = new StringBuilder();
 
-                var query = agentRPC.GetAllActiveEmotions().OrderByDescending(e => e.Intensity);
+                var query = agent1RPC.GetAllActiveEmotions().OrderByDescending(e => e.Intensity);
 
                 foreach (var emt in query)
                 {
@@ -153,7 +159,7 @@ public class ScenarioManager : MonoBehaviour
                 this.AgentInternalStateText.text = aux + "], SI(A,P): " + SIAgentPlayer + " SI(P,A): " + SIPlayerAgent;
             }
 
-            agentRPC.Update();
+            agent1RPC.Update();
 
 
             yield return new WaitForSeconds(updateTime);
@@ -164,7 +170,7 @@ public class ScenarioManager : MonoBehaviour
     {
         while (true)
         {
-            var actions = agentRPC.Decide().ToArray();
+            var actions = agent1RPC.Decide().ToArray();
             var action = actions.Where(a => a.Key.ToString().Equals(IATConsts.DIALOG_ACTION_KEY)).FirstOrDefault();
 
             if (action != null)
@@ -177,7 +183,7 @@ public class ScenarioManager : MonoBehaviour
                 var dialog = dialogs.Shuffle().FirstOrDefault();
                 var processed = this.ReplaceVariablesInDialogue(dialog.Utterance);
 
-                HandleSpeakAction(dialog.Id, agentRPC.CharacterName.ToString(), IATConsts.PLAYER);
+                HandleSpeakAction(dialog.Id, agent1RPC.CharacterName.ToString(), IATConsts.PLAYER);
                 AgentUtterance.text = processed;
           
             }
@@ -197,7 +203,7 @@ public class ScenarioManager : MonoBehaviour
         {
             if (process)
             {
-                var beliefValue = agentRPC.GetBeliefValue(t);
+                var beliefValue = agent1RPC.GetBeliefValue(t);
                 result += beliefValue;
                 process = false;
             }
@@ -290,11 +296,11 @@ public class ScenarioManager : MonoBehaviour
 
         if (ResetEmotions)
         {
-            var currentMood = agentRPC.Mood;
-            agentRPC.ResetEmotionalState();
-            agentRPC.Mood = currentMood;
+            var currentMood = agent1RPC.Mood;
+            agent1RPC.ResetEmotionalState();
+            agent1RPC.Mood = currentMood;
         }
-        HandleSpeakAction(dialogId, "Player", agentRPC.CharacterName.ToString());
+        HandleSpeakAction(dialogId, "Player", agent1RPC.CharacterName.ToString());
     }
 
     private void HandleSpeakAction(Guid id, string subject, string target)
@@ -303,16 +309,16 @@ public class ScenarioManager : MonoBehaviour
 
         var dAct = string.Format("Speak({0},{1},{2},{3})", d.CurrentState, d.NextState, d.Meaning, d.Style);
 
-        agentRPC.Perceive(EventHelper.ActionEnd(subject, dAct, target));
+        agent1RPC.Perceive(EventHelper.ActionEnd(subject, dAct, target));
         playerRPC.Perceive(EventHelper.ActionEnd(subject, dAct, target));
 
         var dStatePropertyAgent = string.Format(IATConsts.DIALOGUE_STATE_PROPERTY, IATConsts.PLAYER);
-        var dStatePropertyPlayer = string.Format(IATConsts.DIALOGUE_STATE_PROPERTY, agentRPC.CharacterName.ToString());
+        var dStatePropertyPlayer = string.Format(IATConsts.DIALOGUE_STATE_PROPERTY, agent1RPC.CharacterName.ToString());
 
-        agentRPC.Perceive(EventHelper.PropertyChange(dStatePropertyAgent, d.NextState, subject));
+        agent1RPC.Perceive(EventHelper.PropertyChange(dStatePropertyAgent, d.NextState, subject));
         playerRPC.Perceive(EventHelper.PropertyChange(dStatePropertyPlayer, d.NextState, subject));
 
-        agentRPC.Perceive(EventHelper.PropertyChange("Has(Floor)", target, subject));
+        agent1RPC.Perceive(EventHelper.PropertyChange("Has(Floor)", target, subject));
         playerRPC.Perceive(EventHelper.PropertyChange("Has(Floor)", target, subject));
 
         if (SaveLog)
@@ -327,8 +333,8 @@ public class ScenarioManager : MonoBehaviour
     private void SaveState()
     {
         const string datePattern = "dd-MM-yyyy-H-mm-ss";
-        agentRPC.SaveToFile(Application.streamingAssetsPath
-            + "\\Logs\\" + agentRPC.CharacterName
+        agent1RPC.SaveToFile(Application.streamingAssetsPath
+            + "\\Logs\\" + agent1RPC.CharacterName
             + "-" + DateTime.Now.ToString(datePattern) + ".rpc");
         playerRPC.SaveToFile(Application.streamingAssetsPath
             + "\\Logs\\" + playerRPC.CharacterName
