@@ -11,6 +11,15 @@
 						{
 							"Set": ["IsFriend(SELF, [x]) = True"]
 						}
+				}, 
+				{
+					"RuleName": "Impressed",
+					"Target": "[x]",
+					"Value": 5,
+					"Conditions":
+						{
+							"Set": ["LastEventId(Action-End, [x], Speak(B3P, P21N, -, Neutral), SELF) = [id]"]
+						}
 				}],
 			"Claims": []
 		},
